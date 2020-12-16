@@ -24,6 +24,7 @@ export default {
   .panel{
     padding: 5px;
     border-radius: 10px;
+    position: relative;
 
     &--red{
       border: 1px solid #cb2031;
@@ -31,12 +32,15 @@ export default {
       .panel__content{
         background: #cb2031;
         color: white;
-        position: relative;
       }
     }
 
     &--white{
+      border: 1px solid #fff;
 
+      .panel__content{
+        background: white;
+      }
     }
 
     &__content{

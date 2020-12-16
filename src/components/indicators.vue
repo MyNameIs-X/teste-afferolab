@@ -17,10 +17,10 @@ export default {
   },
 
   props: {
-    currentLoyalty: { type: Number, required: true, default: 0 },
-    currentSatisfaction: { type: Number, required: true, default: 0 },
-    totalLoyalty: { type: Number, required: true, default: 0 },
-    totalSatisfaction: { type: Number, required: true, default: 0 },
+    currentLoyalty: { type: Number, default: 0 },
+    currentSatisfaction: { type: Number, default: 0 },
+    totalLoyalty: { type: Number, default: 0 },
+    totalSatisfaction: { type: Number, default: 0 },
   },
 };
 </script>
@@ -34,8 +34,10 @@ export default {
       </p>
       <k-progress 
         class="indicators__item__progress"
+        color="#3469b3"
         :percent="percentSatisfaction"
         :show-text="false"
+        :lineHeight="8"
       />
     </li>
 
@@ -43,8 +45,10 @@ export default {
       <p>Fidelização</p>
       <k-progress 
         class="indicators__item__progress"
+        color="#68469c"
         :percent="percentLoyalty"
         :show-text="false"
+        :lineHeight="8"
       />
     </li>
   </ul>

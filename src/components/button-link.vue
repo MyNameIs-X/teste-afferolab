@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'button',
+  name: 'button-link',
 
   props: {
     href: { type: String, required: true },

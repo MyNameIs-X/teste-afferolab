@@ -1,3 +1,15 @@
+<script>
+import buttonLink from '@/components/button-link.vue';
+
+export default {
+  components: {
+    'button-link': buttonLink
+  },
+
+  name: 'introduction'
+}
+</script>
+
 <template>
   <div class="app">
     <div class="app__introduction">
@@ -8,18 +20,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import button from '@/components/button.vue';
-
-export default {
-  components: {
-    'button-link': button
-  },
-
-  name: 'introduction'
-}
-</script>
 
 <style lang="less" scoped>
 .app{

@@ -20,6 +20,11 @@ export default new Router({
       name: 'questions',
       path: '/questions',
       component: () => import('./views/questions.vue')
+    },
+    {
+      name: 'result',
+      path: '/result',
+      component: () => import('./views/result.vue')
     }
   ]    
 })

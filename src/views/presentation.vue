@@ -1,15 +1,32 @@
 <script>
-import button from '@/components/button.vue';
+import buttonLink from '@/components/button-link.vue';
 import indicators from '@/components/indicators.vue';
 import panel from '@/components/panel.vue';
+import headerIndicators from '@/components/header-indicators.vue';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'presentation',
   components: {
-    'button-link': button,
+    'button-link': buttonLink,
     indicators,
+    'header-indicators': headerIndicators,
     panel
+  },
+
+  async created(){
+    this.reset();
+    await this.getQuestions();
+  },
+
+  methods: {
+    ...mapActions([
+      'getQuestions',
+      'reset'
+    ])
   }
+
+
 }
 </script>
     Indicators
@@ -17,15 +34,7 @@ export default {
 <template>
   <div class="app">
     <div class="app__presentation">
-      <header class="app__presentation__indicators">
-        <div class="content">
-          <figure>
-            <img src="../assets/images/arte_indicadores.png" alt="Indicadores" title="Indicadores" class="app__presentation__indicators__image">
-          </figure>
-          <indicators class="app__presentation__indicators__progress" />
-        </div>
-      </header>
-
+      <header-indicators />
       <panel color="red" class="panel-component">
         <div class="app__presentation__panel">
           <div class="app__presentation__panel__text">
@@ -68,45 +77,11 @@ export default {
 
     &__presentation{
       padding-top: 50px;
-  
-      &__indicators{
-
-        &::after{
-          content: ' ';
-          display:  block;
-          clear: both;
-        }
-
-        &__image{
-          max-width: 100px;
-          margin-right: 20px;
-        }
-
-        &__progress{
-          background: #cb2031;
-          color: white;
-          padding: 10px;
-          border-radius: 5px;
-        }
-
-        .content{
-          float: right;
-          // width: 600px;
-          // background: white;
-          display: grid;
-          grid-template-columns: 1fr 2fr;
-          grid-gap: 10px;
-        
-          figure{
-            text-align: right;
-          }
-        }
-      }
 
       &__panel{
         display: grid;
         grid-gap: 10px;
-        grid-template-columns: 3fr 2fr;
+        grid-template-columns: 1.3fr 1fr;
 
         &__text p{
           margin-bottom: 10px;
@@ -140,7 +115,7 @@ export default {
       }
 
       .panel-component{
-        max-width: 650px;
+        max-width: 700px;
         margin-top: 30px;
         position: relative;
       }
